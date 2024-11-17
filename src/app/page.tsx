@@ -1,11 +1,10 @@
 import Link from "next/link";
 
 import { FirewallRuleGenerator } from "~/app/_components/firewallRuleGenerator";
-import { api, HydrateClient } from "~/trpc/server";
+import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
 
-    void api.threatSource.getAll.prefetch();
 
   return (
     <HydrateClient>
