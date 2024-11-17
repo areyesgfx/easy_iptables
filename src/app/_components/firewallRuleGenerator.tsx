@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 export function FirewallRuleGenerator() {
   // States
   const [chain, setChain] = useState("");
@@ -79,10 +82,11 @@ export function FirewallRuleGenerator() {
     navigator.clipboard
       .writeText(generatedRule)
       .then(() => {
-        alert("Rule copied to clipboard!");
+        toast.success("Rule copied to clipboard!");
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);
+        toast.error("Failed to copy rule.");
       });
   };
 
@@ -95,9 +99,11 @@ export function FirewallRuleGenerator() {
             className="w-full h-12 text-lg rounded-md text-center text-gray-400"
             name="chain"
             id="chain"
+            defaultValue="SELECT CHAIN"
             required
             onChange={(e) => setChain(e.target.value)}
           >
+            <option value="">SELECT CHAIN</option>
             <option value="INPUT">INPUT</option>
             <option value="FORWARD">FORWARD</option>
             <option value="OUTPUT">OUTPUT</option>
@@ -109,9 +115,11 @@ export function FirewallRuleGenerator() {
             className="w-full h-12 text-lg rounded-md text-center text-gray-400"
             name="protocol"
             id="protocol"
+            defaultValue="SELECT PROTOCOL"
             required
             onChange={(e) => setProtocol(e.target.value)}
           >
+            <option value="">SELECT PROTOCOL</option>
             <option value="TCP">TCP</option>
             <option value="UDP">UDP</option>
             <option value="IP">IP</option>
@@ -124,9 +132,11 @@ export function FirewallRuleGenerator() {
             className="w-full h-12 text-lg rounded-md text-center text-gray-400"
             name="action"
             id="action"
+            defaultValue="SELECT ACTION"
             required
             onChange={(e) => setAction(e.target.value)}
           >
+            <option value="">SELECT ACTION</option>
             <option value="ACCEPT">ACCEPT</option>
             <option value="DROP">DROP</option>
             <option value="QUEUE">QUEUE</option>
@@ -193,8 +203,8 @@ export function FirewallRuleGenerator() {
           />
         </div>
       </div>
-      <div className="flex items-center justify-center mt-4">
-        <p id="generatedRule" className="text-center mr-2">{generatedRule}</p>
+      <div className="flex items-center justify-center mt-4 pt-10">
+        <p id="generatedRule" className="text-center text-xl mr-2">{generatedRule}</p>
         <input
           type="image"
           width={20}
@@ -204,6 +214,7 @@ export function FirewallRuleGenerator() {
           alt="copy icon"
         ></input>
       </div>
+      <ToastContainer />
     </div>
   );
 }
