@@ -199,7 +199,7 @@ export function FirewallRuleGenerator() {
           type="image"
           width={20}
           height={20}
-          src="https://utfs.io/f/0c19640b-5178-480e-8268-9d890f933ebf-21khcv.png"
+          src="https://utfs.io/f/TqtFLTnGAiaPqey0bCWN7YfTt2rVlvawxgp1O9mJK8dXABRU"
           onClick={copyToClipboard}
           alt="copy icon"
         ></input>
