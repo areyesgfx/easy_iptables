@@ -1,29 +1,81 @@
-# Create T3 App
+# Easy IPTables
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A web-based IPTables rule generator that simplifies the creation of Linux firewall rules through an intuitive user interface.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Visual rule generation for IPTables
+- Support for common chains (INPUT, FORWARD, OUTPUT)
+- Protocol selection (TCP, UDP, IP, ICMP)
+- Action configuration (ACCEPT, DROP, QUEUE)
+- Source and destination IP/port configuration
+- Rule ordering capability
+- One-click rule copying to clipboard
+- Real-time rule preview
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- [Next.js 15](https://nextjs.org/)
+- [React 18](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
 
-## Learn More
+## Getting Started
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Prerequisites
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- Node.js (Latest LTS version recommended)
+- npm
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Installation
 
-## How do I deploy this?
+1. Clone the repository:
+```bash
+git clone https://github.com/areyesgfx/easy_iptables.git
+cd easy_iptables
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Usage
+
+1. Select the desired chain (INPUT, FORWARD, OUTPUT)
+2. Choose the protocol (TCP, UDP, IP, ICMP)
+3. Set the action (ACCEPT, DROP, QUEUE)
+4. Enter source IP address and port (optional)
+5. Enter destination IP address and port (optional)
+6. Specify rule order if needed
+7. Copy the generated rule using the copy button
+8. Apply the rule in your Linux system
+
+## Development
+
+- Run development server: `npm dev`
+- Build for production: `npm build`
+- Start production server: `npm start`
+- Run linter: `npm lint`
+- Format code: `npm format:write`
+- Type check: `npm typecheck`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Built with [Create T3 App](https://create.t3.gg/)
